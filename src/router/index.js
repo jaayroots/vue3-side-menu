@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MyNote from '../views/MyNote.vue'
+import CreateNote from '../views/CreateNote.vue'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -9,8 +10,8 @@ const router = createRouter({
 			component: MyNote
 		},
 		{
-			path: '/about',
-			component: () => import('../views/About.vue')
+			path: '/createNote',
+			component: CreateNote
 		},
 	],
 })

@@ -14,10 +14,10 @@
       </button>
     </div>
     <div class="menu">
-      <button class="button">
+      <router-link to="/createNote" class="button">
         <span class="material-icons">add</span>
         <span class="text">Create Note</span>
-      </button>
+      </router-link>
     </div>
     <h3>Menu</h3>
     <div class="menu">
@@ -25,7 +25,7 @@
         <span class="material-icons">description</span>
         <span class="text">My Note</span>
       </router-link>
-      <router-link to="/about" class="button">
+      <!-- <router-link to="/about" class="button">
         <span class="material-icons">description</span>
         <span class="text">About</span>
       </router-link>
@@ -36,16 +36,16 @@
       <router-link to="/contact" class="button">
         <span class="material-icons">email</span>
         <span class="text">Contact</span>
-      </router-link>
+      </router-link> -->
     </div>
 
     <div class="flex"></div>
 
     <div class="menu">
-      <router-link to="/settings" class="button">
+      <!-- <router-link to="/settings" class="button">
         <span class="material-icons">settings</span>
         <span class="text">Settings</span>
-      </router-link>
+      </router-link> -->
     </div>
   </aside>
 </template>
