@@ -1,9 +1,7 @@
 <template>
-  <div class="card note-detail" v-if="!this.loading">
-    <NoteDefault />
-  </div>
-  <div class="card note-detail" v-else>
-    <NoteLoading />
+  <div class="card note-detail">
+    <NoteDefault 
+    :noteList="this.noteList"/>
   </div>
 </template>
 
@@ -16,20 +14,15 @@ export default {
     NoteLoading,
   },
   props: {
-    loadingNote: Boolean,
+    noteList: Object,
   },
   setup() {
     return {
-      loading: true,
-    };
+    }
   },
   created() {
-    console.log(this.loading);
   },
   watch: {
-    loadingNote() {
-      this.loading = this.loadingNote;
-    },
   },
 };
 </script>

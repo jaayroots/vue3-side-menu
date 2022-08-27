@@ -1,8 +1,12 @@
 <template>
   <div class="app">
-    <div><Sidebar /></div>
     <div>
-      <div class="route-view"><router-view /></div>
+      <Sidebar />
+    </div>
+    <div class="route-view">
+      <div>
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
@@ -60,5 +64,7 @@ button {
 
 .route-view {
   margin-top: 1rem;
+  width: 100%;
+  min-height: 100%;
 }
 </style>

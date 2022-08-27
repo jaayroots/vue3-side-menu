@@ -1,46 +1,10 @@
 <template>
-  <div
-    class="row col-8 nav nav-pills nav-stacked"
-    style="height: 90vh; overflow-y: scroll"
-  >
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
-    <div class="col-lg-4"><Note :loadingNote="this.loading" /></div>
+  <div class="container-fluid" style="height: 90vh; overflow-y: scroll">
+    <div class="row">
+      <div class="col-lg-3" v-for="note in this.noteList" :key="note.id">
+        <Note :noteList="note" @click="selectedNote(note)" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -51,7 +15,7 @@ export default {
     Note,
   },
   props: {
-    loadingNote: Boolean,
+    noteList: Array,
   },
   data: function () {
     return {
@@ -61,10 +25,12 @@ export default {
   created() {
   },
   watch: {
-    loadingNote() {
-      this.loading = this.loadingNote;
-    },
   },
+  methods: {
+    selectedNote(noteId) {
+      console.log(noteId);
+    }
+  }
 };
 </script>
 

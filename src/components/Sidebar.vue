@@ -1,11 +1,10 @@
 <template>
-  <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
+  <aside :class="`${is_expanded ? 'is-expanded' : ''}`" style="height: 100%;">
     <div class="logo menu button">
       <span class="material-icons"></span>
       <img
         :src="'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/profile-design-template-4c23db68ba79c4186fbd258aa06f48b3_screen.jpg?ts=1581063859'"
-        alt="Vue"
-      />
+        alt="Vue" />
       <span class="text" style="padding-left: 2rem">User Name</span>
     </div>
     <div class="menu-toggle-wrap">
@@ -24,6 +23,10 @@
       <router-link to="/" class="button">
         <span class="material-icons">description</span>
         <span class="text">My Note</span>
+      </router-link>
+      <router-link to="/todoList" class="button">
+        <span class="material-icons">list</span>
+        <span class="text">Todo List</span>
       </router-link>
       <!-- <router-link to="/about" class="button">
         <span class="material-icons">description</span>
@@ -102,6 +105,7 @@ aside {
 
     .menu-toggle {
       transition: 0.2s ease-in-out;
+
       .material-icons {
         font-size: 2rem;
         color: var(--light);
@@ -146,6 +150,7 @@ aside {
         color: var(--light);
         transition: 0.2s ease-in-out;
       }
+
       .text {
         color: var(--light);
         transition: 0.2s ease-in-out;

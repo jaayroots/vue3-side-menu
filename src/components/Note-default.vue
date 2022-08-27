@@ -1,20 +1,30 @@
 <template>
-  <div class="card-body">
-    <h6 class="card-date-time">22 Aug 2022</h6>
+  <!-- <div class="card-body card-custom">
+    <h6 class="card-date-time">{{ this.noteList.update }}</h6>
     <div>
       <span class="dot"></span>
-      <b style="padding-left: 0.5rem">Header</b>
+      <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
     </div>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+    <p class="card-text text-show">
+      {{ this.noteList.detailNote }}
     </p>
+  </div> -->
+  <div class="card-body" style="max-height: 30rem;">
+      <h6 class="card-date-time">{{ this.noteList.update }}</h6>
+    <div>
+      <span class="dot"></span>
+      <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
+    </div>
+    <p class="card-text text-show">{{ this.noteList.detailNote }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  setup() {},
+  props: {
+    noteList: Object,
+  },
+  setup() { },
 };
 </script>
 
@@ -26,11 +36,26 @@ export default {
   border-radius: 50%;
   display: inline-block;
 }
+
 .date-time-loading {
   border-radius: 25px;
   display: inline-block;
 }
+
 .card-date-time {
   color: var(--grey);
+}
+
+.text-show {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+}
+
+.card-custom {
+  height: 40vh;
 }
 </style>
