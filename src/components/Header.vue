@@ -1,28 +1,29 @@
 <template>
   <div class="container-fluid header col-lg-auto">
     <div class="row col-12">
-      <div class="col-lg-6">
+      <div class="col-lg-4">
+        <button type="button" class="btn btn-success" style="width: 100%;" @click="createNote()">Add Note +</button>
+      </div>
+      <div class="col-lg-8">
         <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
           placeholder="Universal Search" />
-      </div>
-      <div class="col-lg-2">
-        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-          placeholder="DatePicker" />
-      </div>
-      <div class="col-lg-2">
-        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-          placeholder="Select Option" />
-      </div>
-      <div class="col-lg-2">
-        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
-          placeholder="Faverite Status" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: function () {
+    return {
+    };
+  },
+  methods: {
+    createNote() {
+      this.$emit('createNote', true)
+    }
+  },
+};
 </script>
 
 <style>

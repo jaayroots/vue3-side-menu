@@ -1,22 +1,24 @@
 <template>
-  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-lg"
-    placeholder="Title" />
-  <div class="row" style="margin-top: 0.5rem">
-    <div class="col-lg-6">
-      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-lg"
-        placeholder="Select Option" />
-    </div>
-    <div class="col-lg-6">
-      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-lg"
-        placeholder="Faverite Status" />
-    </div>
-  </div>
-  <textarea style="margin-top: 0.5rem" class="form-control" id="exampleFormControlTextarea1" rows="8"
-    placeholder="Note me ..."></textarea>
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-lg" placeholder="Title"
+    v-model="this.titleNote" @keyup="passback()" />
+  <textarea style="margin-top: 0.5rem;" class="form-control" id="exampleFormControlTextarea1" rows="15"
+    placeholder="Note me ..." v-model="this.detailNote" @keyup="passback()"></textarea>
 </template>
 
 <script>
-export default {};
+export default {
+  data: function () {
+    return {
+      options: ['A', 'B', 'C'],
+      value: 'A'
+    };
+  },
+  methods: {
+    passback() {
+      this.$emit('noteForm', this.titleNote, this.detailNote)
+    }
+  },
+};
 </script>
 
 <style>

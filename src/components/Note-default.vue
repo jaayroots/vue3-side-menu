@@ -1,16 +1,6 @@
 <template>
-  <!-- <div class="card-body card-custom">
+  <div class="card-body">
     <h6 class="card-date-time">{{ this.noteList.update }}</h6>
-    <div>
-      <span class="dot"></span>
-      <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
-    </div>
-    <p class="card-text text-show">
-      {{ this.noteList.detailNote }}
-    </p>
-  </div> -->
-  <div class="card-body" style="max-height: 30rem;">
-      <h6 class="card-date-time">{{ this.noteList.update }}</h6>
     <div>
       <span class="dot"></span>
       <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
@@ -51,7 +41,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 

@@ -12,22 +12,16 @@
         <span class="material-icons">keyboard_double_arrow_right</span>
       </button>
     </div>
-    <div class="menu">
-      <router-link to="/createNote" class="button">
-        <span class="material-icons">add</span>
-        <span class="text">Create Note</span>
-      </router-link>
-    </div>
     <h3>Menu</h3>
     <div class="menu">
       <router-link to="/" class="button">
         <span class="material-icons">description</span>
         <span class="text">My Note</span>
       </router-link>
-      <router-link to="/todoList" class="button">
+      <!-- <router-link to="/todoList" class="button">
         <span class="material-icons">list</span>
         <span class="text">Todo List</span>
-      </router-link>
+      </router-link> -->
       <!-- <router-link to="/about" class="button">
         <span class="material-icons">description</span>
         <span class="text">About</span>

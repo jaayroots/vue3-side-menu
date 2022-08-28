@@ -1,7 +1,10 @@
 <template>
   <div class="container-fluid" style="height: 90vh; overflow-y: scroll">
     <div class="row">
-      <div class="col-lg-3" v-for="note in this.noteList" :key="note.id">
+      <div class="col-lg-auto" v-if="this.note.noteCreateStatus">
+        <Note :noteList="this.note" />
+      </div>
+      <div class="col-lg-auto" v-for="note in this.noteList" :key="note.id">
         <Note :noteList="note" @click="selectedNote(note)" />
       </div>
     </div>
@@ -16,6 +19,7 @@ export default {
   },
   props: {
     noteList: Array,
+    note: Array
   },
   data: function () {
     return {
