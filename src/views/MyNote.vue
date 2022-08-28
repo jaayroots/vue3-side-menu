@@ -5,7 +5,7 @@
         <NoteForm @noteForm="GetNoteTitle" />
       </div>
       <div class="col-lg-4">
-        <Header @createNote="CreateNote"/>
+        <Header @createNote="CreateNote" />
         <NoteList :noteList="this.noteList" :note="this.note" />
       </div>
     </div>
@@ -47,11 +47,11 @@ export default {
     ]
   },
   methods: {
-    CreateNote (status) {
+    CreateNote(status) {
       this.note.noteCreateStatus = status
     },
-    GetNoteTitle (titleNote, detailNote) {
-      this.note.noteCreateStatus = titleNote || detailNote ? true :false
+    GetNoteTitle(titleNote, detailNote) {
+      this.note.noteCreateStatus = titleNote || detailNote ? true : false
       this.note.titleNote = titleNote
       this.note.detailNote = detailNote
     }

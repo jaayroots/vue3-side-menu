@@ -9,12 +9,11 @@
 export default {
   data: function () {
     return {
-      options: ['A', 'B', 'C'],
-      value: 'A'
     };
   },
   methods: {
     passback() {
+      console.log(this.detailNote);
       this.$emit('noteForm', this.titleNote, this.detailNote)
     }
   },

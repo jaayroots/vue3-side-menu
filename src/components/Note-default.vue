@@ -5,7 +5,7 @@
       <span class="dot"></span>
       <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
     </div>
-    <p class="card-text text-show">{{ this.noteList.detailNote }}</p>
+    <p class="card-text text-show-detail">{{ this.noteList.detailNote }}</p>
   </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
   color: var(--grey);
 }
 
-.text-show {
+.text-show-detail {
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
