@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid" style="height: 90vh; overflow-y: scroll">
     <div class="row">
-      <div class="col-lg-auto" v-if="this.note.noteCreateStatus">
+      <!-- <div class="col-lg-12" v-if="!this.note.noteCreateStatus">
         <Note :noteList="this.note" />
-      </div>
-      <div class="col-lg-auto" v-for="note in this.noteList" :key="note.id">
+      </div> -->
+      <div class="col-lg-12" v-for="note in this.noteList" :key="note.id">
         <Note :noteList="note" @click="selectedNote(note)" />
       </div>
     </div>
@@ -19,22 +19,20 @@ export default {
   },
   props: {
     noteList: Array,
-    note: Array
+    note: Object,
   },
   data: function () {
     return {
       loading: true,
     };
   },
-  created() {
-  },
-  watch: {
-  },
+  created() {},
+  watch: {},
   methods: {
-    selectedNote(noteId) {
-      console.log(noteId);
-    }
-  }
+    selectedNote(note) {
+      this.$emit("selectedNote", note);
+    },
+  },
 };
 </script>
 

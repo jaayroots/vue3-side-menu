@@ -1,9 +1,6 @@
 <template>
   <div class="container-fluid header col-lg-auto">
     <div class="row col-12">
-      <div class="col-lg-4">
-        <button type="button" class="btn btn-success" style="width: 100%;" @click="createNote()">Add Note +</button>
-      </div>
       <div class="col-lg-8">
         <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
           placeholder="Universal Search" />

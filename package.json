@@ -9,8 +9,15 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "bootstrap-vue": "^2.22.0",
+    "cors": "^2.8.5",
+    "moment": "^2.29.4",
+    "uuid": "^8.3.2",
     "vue": "^3.2.25",
+    "vue-axios": "^3.4.1",
     "vue-bootstrap-modal": "^0.1.13",
     "vue-router": "^4.0.12"
   },

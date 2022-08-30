@@ -1,12 +1,16 @@
 <template>
-  <div class="container-fluid" style="display: flex; justify-content: center;">
+  <div class="container-fluid" style="display: flex; justify-content: center">
     <div class="row col-12">
       <div class="col-lg-8">
-        <NoteForm @noteForm="GetNoteTitle" />
+        <NoteForm :editNote="this.updateNote" @noteForm="GetNoteTitle" />
       </div>
       <div class="col-lg-4">
         <Header @createNote="CreateNote" />
-        <NoteList :noteList="this.noteList" :note="this.note" />
+        <NoteList
+          :noteList="this.noteList"
+          :note="this.note"
+          @selectedNote="selectedNote"
+        />
       </div>
     </div>
   </div>
@@ -17,6 +21,8 @@ import Header from "../components/Header.vue";
 import Note from "../components/Note.vue";
 import NoteForm from "../components/NoteForm.vue";
 import NoteList from "../components/NoteList.vue";
+import moment from "moment";
+import { HTTP } from "../axios";
 export default {
   components: {
     Note,
@@ -28,33 +34,39 @@ export default {
     return {
       noteList: [],
       note: {
-        id: 'new',
-        titleNote: '',
-        detailNote: '',
-        update: '20 Jan 2022 : 04:55',
-        noteCreateStatus: false
-      }
+        title: "",
+        detail: "",
+        noteCreateStatus: false,
+      },
+      updateNote: {},
     };
   },
   created() {
-    this.noteList = [
-      {
-        id: 1,
-        titleNote: 'a short piece of writing',
-        detailNote: "He left a note to say he would be home late.There's a note on the door saying whenhome late.There's a note on the door saying whenhome late.There's a note on the door saying when the shop will open again.",
-        update: '20 Jan 2022 : 04:55',
-      }
-    ]
+    this.getListNote();
   },
   methods: {
-    CreateNote(status) {
-      this.note.noteCreateStatus = status
+    async getListNote() {
+      await HTTP.get("/notelist")
+        .then((res) => {
+          this.noteList = [...new Set(res.data)];
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
-    GetNoteTitle(titleNote, detailNote) {
-      this.note.noteCreateStatus = titleNote || detailNote ? true : false
-      this.note.titleNote = titleNote
-      this.note.detailNote = detailNote
-    }
+    CreateNote(status) {
+      this.note.noteCreateStatus = status;
+    },
+    GetNoteTitle(title, detail) {
+      this.note.noteCreateStatus = title || detail ? true : false;
+      this.note.title = title;
+      this.note.detail = detail;
+      this.note.update = moment().format("YYYY-MM-DD hh:mm:ss");
+    },
+    selectedNote(note) {
+      this.updateNote = note;
+      this.updateNote.noteCreateStatus = false;
+    },
   },
 };
 </script>

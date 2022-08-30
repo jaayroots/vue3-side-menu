@@ -1,11 +1,20 @@
 <template>
   <div class="card-body">
-    <h6 class="card-date-time">{{ this.noteList.update }}</h6>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-10">
+          <h6 class="card-date-time">{{ this.noteList.update }}</h6>
+        </div>
+        <div class="col-auto">
+          <i class="bi bi-archive-fill"></i>
+        </div>
+      </div>
+    </div>
     <div>
       <span class="dot"></span>
-      <b style="padding-left: 0.5rem">{{ this.noteList.titleNote }}</b>
+      <b style="padding-left: 0.5rem">{{ this.noteList.title }}</b>
     </div>
-    <p class="card-text text-show-detail">{{ this.noteList.detailNote }}</p>
+    <p class="card-text text-show-detail">{{ this.noteList.detail }}</p>
   </div>
 </template>
 
@@ -14,7 +23,7 @@ export default {
   props: {
     noteList: Object,
   },
-  setup() { },
+  setup() {},
 };
 </script>
 
