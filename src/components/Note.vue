@@ -1,7 +1,6 @@
 <template>
   <div class="card note-detail">
-    <NoteDefault 
-    :noteList="this.noteList"/>
+    <NoteDefault :noteList="this.noteList" @reloadNoteList="reloadNoteList" />
   </div>
 </template>
 
@@ -17,13 +16,15 @@ export default {
     noteList: Object,
   },
   setup() {
-    return {
-    }
+    return {};
   },
-  created() {
+  created() {},
+  methods: {
+    reloadNoteList() {
+      this.$emit("reloadNoteList");
+    },
   },
-  watch: {
-  },
+  watch: {},
 };
 </script>
 

@@ -60,7 +60,9 @@ export default {
         { title: this.title, detail: this.detail },
         config
       )
-        .then((res) => {})
+        .then((res) => {
+          this.$emit("reloadNoteList");
+        })
         .catch((e) => {
           console.log(e);
         });

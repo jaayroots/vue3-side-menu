@@ -5,8 +5,10 @@
         <div class="col-10">
           <h6 class="card-date-time">{{ this.noteList.update }}</h6>
         </div>
-        <div class="col-auto">
-          <i class="bi bi-archive-fill"></i>
+        <div class="col-2">
+          <button type="button" class="btn btn-danger" @click="deleteNote()">
+            <i class="bi bi-archive-fill"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -19,11 +21,24 @@
 </template>
 
 <script>
+import { HTTP } from "../axios";
+
 export default {
   props: {
     noteList: Object,
   },
   setup() {},
+  methods: {
+    async deleteNote() {
+      await HTTP.delete("/notelist", { data: this.noteList })
+        .then((res) => {
+          this.$emit("reloadNoteList");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
 };
 </script>
 

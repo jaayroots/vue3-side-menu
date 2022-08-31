@@ -1,10 +1,11 @@
 <template>
-  <aside :class="`${is_expanded ? 'is-expanded' : ''}`" style="height: 100%;">
+  <aside :class="`${is_expanded ? 'is-expanded' : ''}`" style="height: 100%">
     <div class="logo menu button">
       <span class="material-icons"></span>
       <img
         :src="'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/profile-design-template-4c23db68ba79c4186fbd258aa06f48b3_screen.jpg?ts=1581063859'"
-        alt="Vue" />
+        alt="Vue"
+      />
       <span class="text" style="padding-left: 2rem">User Name</span>
     </div>
     <div class="menu-toggle-wrap">
@@ -16,7 +17,11 @@
     <div class="menu">
       <router-link to="/" class="button">
         <span class="material-icons">description</span>
-        <span class="text">My Note</span>
+        <span class="text">My Note V.1</span>
+      </router-link>
+      <router-link to="/notev2" class="button">
+        <span class="material-icons">description</span>
+        <span class="text">My Note V.2</span>
       </router-link>
       <!-- <router-link to="/todoList" class="button">
         <span class="material-icons">list</span>

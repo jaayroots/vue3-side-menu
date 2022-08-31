@@ -2,14 +2,19 @@
   <div class="container-fluid" style="display: flex; justify-content: center">
     <div class="row col-12">
       <div class="col-lg-8">
-        <NoteForm :editNote="this.updateNote" @noteForm="GetNoteTitle" />
+        <NoteForm
+          :editNote="this.updateNote"
+          @noteForm="GetNoteTitle"
+          @reloadNoteList="getListNote"
+        />
       </div>
       <div class="col-lg-4">
-        <Header @createNote="CreateNote" />
+        <!-- <Header @createNote="CreateNote" /> -->
         <NoteList
           :noteList="this.noteList"
           :note="this.note"
           @selectedNote="selectedNote"
+          @reloadNoteList="getListNote"
         />
       </div>
     </div>

@@ -1,11 +1,16 @@
 <template>
   <div class="container-fluid" style="height: 90vh; overflow-y: scroll">
     <div class="row">
-      <!-- <div class="col-lg-12" v-if="!this.note.noteCreateStatus">
+      <!-- {{this.note}} -->
+      <!-- <div class="col-lg-12" v-if="this.note.noteCreateStatus">
         <Note :noteList="this.note" />
       </div> -->
       <div class="col-lg-12" v-for="note in this.noteList" :key="note.id">
-        <Note :noteList="note" @click="selectedNote(note)" />
+        <Note
+          :noteList="note"
+          @click="selectedNote(note)"
+          @reloadNoteList="reloadNoteList"
+        />
       </div>
     </div>
   </div>
@@ -31,6 +36,9 @@ export default {
   methods: {
     selectedNote(note) {
       this.$emit("selectedNote", note);
+    },
+    reloadNoteList() {
+      this.$emit("reloadNoteList");
     },
   },
 };
