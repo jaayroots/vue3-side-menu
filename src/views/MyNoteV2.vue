@@ -9,7 +9,7 @@
         <div
           class="card"
           style="margin-bottom: 0.5rem"
-          v-for="note in notelist"
+          v-for="note in noteList.data"
           :key="note.id"
         >
           <div class="card-body">
@@ -23,28 +23,35 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8" style="background: white">
-        <div class="form-group row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleFormControlInput1"
-            />
+      <div class="col-lg-8">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Title</span>
           </div>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            v-model="title"
+          />
         </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-2 col-form-label"
-            >Password</label
+        <div class="input-group mb-2">
+          <textarea
+            class="form-control"
+            aria-label="With textarea"
+            placeholder="Detail ..."
+            rows="15"
+          ></textarea>
+        </div>
+        <div class="input-group mb-2">
+          <button
+            type="button"
+            class="btn btn-success btn-xl btn-block"
+            style="width: 100%"
           >
-          <div class="col-sm-10">
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            ></textarea>
-          </div>
+            Create Note +
+          </button>
         </div>
       </div>
     </div>
@@ -52,19 +59,23 @@
 </template>
 
 <script>
-import { HTTP } from "../axios";
 import { ref, onMounted } from "vue";
+import NoteFormV2 from "../components/NoteFormV2.vue";
+import useMyNote from "../hooks/useMyNote";
 export default {
+  components: {
+    NoteFormV2,
+  },
   setup() {
-    const notelist = ref([]);
-    const getData = async () => {
-      const response = await HTTP.get("/notelist");
-      notelist.value = response.data;
-    };
+    const { noteList, getNote } = useMyNote.useGetNote({});
+
     onMounted(() => {
-      getData();
+      getNote();
     });
-    return { notelist };
+    return {
+      noteList,
+      getNote,
+    };
   },
 };
 </script>

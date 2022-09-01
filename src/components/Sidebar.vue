@@ -17,11 +17,11 @@
     <div class="menu">
       <router-link to="/" class="button">
         <span class="material-icons">description</span>
-        <span class="text">My Note V.1</span>
+        <span class="text">My Note V.1 Option</span>
       </router-link>
       <router-link to="/notev2" class="button">
         <span class="material-icons">description</span>
-        <span class="text">My Note V.2</span>
+        <span class="text">My Note V.2 Composition</span>
       </router-link>
       <!-- <router-link to="/todoList" class="button">
         <span class="material-icons">list</span>
